@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 export default async function handler(req, res) {
   const { name, email, feedbackType, message } = req.body;
+  const prisma = new PrismaClient();
   try {
     await prisma.feedback.create({
       data: {
