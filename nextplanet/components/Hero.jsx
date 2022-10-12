@@ -8,11 +8,15 @@ import {
   Button,
   Heading,
   useColorModeValue,
+  useColorMode,
 } from "@chakra-ui/react";
 import { AiOutlineMenu } from "react-icons/ai";
+import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 
 const Hero = () => {
   const bg = useColorModeValue("white", "gray.800");
+
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <>
@@ -145,6 +149,9 @@ const Hero = () => {
                 >
                   Contact
                 </chakra.a>
+                <Button onClick={toggleColorMode}>
+                  {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                </Button>
               </Box>
             </Box>
           </Box>
